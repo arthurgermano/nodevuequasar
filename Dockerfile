@@ -1,4 +1,3 @@
-
 FROM ubuntu:18.04
 
 # adding proxy privoxy
@@ -29,7 +28,8 @@ RUN wget -qO- http://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh
 && npm install -g @vue/cli \
 && npm install -g @quasar/cli \
 && npm install -g serve \
-&& npm install -g workbox-cli 
+&& npm install -g workbox-cli \
+&& npm install -g pm2
 
 WORKDIR /app
 
