@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM debian:latest
 
 # adding proxy privoxy
 RUN export https_proxy=http://localhost:8118 && export http_proxy=http://localhost:8118
@@ -10,7 +10,7 @@ RUN apt update && apt upgrade -y
 RUN apt install -y wget
 
 # Installing bash
-RUN apt install build-essential -y
+# RUN apt install build-essential -y
 
 RUN echo "https_proxy=http://localhost:8118" >> /etc/wgetrc
 RUN echo "http_proxy=http://localhost:8118" >> /etc/wgetrc
