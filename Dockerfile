@@ -7,7 +7,7 @@ FROM debian:latest
 RUN apt update && apt upgrade -y
 
 # Installing updated wget
-RUN apt install -y wget
+RUN apt install -y wget apt-utils
 
 # Installing bash
 # RUN apt install build-essential -y
@@ -16,7 +16,7 @@ RUN apt install -y wget
 # RUN echo "http_proxy=http://localhost:8118" >> /etc/wgetrc
 
 # Installing NVM
-RUN wget -qO- http://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash \
+RUN wget -qO- http://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash \
 && export NVM_DIR="$HOME/.nvm" \
 && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  \
 && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
@@ -25,9 +25,7 @@ RUN wget -qO- http://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh
 && npm config set registry http://registry.npmjs.org \
 && npm config set unsafe-perm true \
 && npm install -g @vue/cli \
-&& npm install -g @quasar/cli \
 && npm install -g serve \
-&& npm install -g workbox-cli \
 && npm install -g pm2
 
 WORKDIR /app
